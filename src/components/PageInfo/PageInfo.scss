@@ -1,0 +1,19 @@
+//Page info
+.page__info {
+	text-align: center;
+
+	//img
+	&-img {
+		margin-bottom: 25px;
+	}
+
+	//title
+	&-title {
+		margin-bottom: 10px;
+	}
+
+	//text
+	&-text {
+		margin-bottom: 40px;
+	}
+}

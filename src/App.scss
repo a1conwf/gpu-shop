@@ -1,0 +1,107 @@
+@use "./scss/functions" as *;
+@use "./scss/mixins" as *;
+
+//Resets
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+button {
+	border: none;
+	outline: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+body {
+	background-color: #fff;
+	font-family: "Inter", sans-serif;
+	font-size: rem(14);
+	line-height: rem(17);
+}
+
+h1 {
+	font-size: rem(32);
+	line-height: rem(39);
+}
+
+//Content header
+.content__header {
+	@include flex(space-between, center);
+	flex-direction: column;
+	text-align: center;
+	gap: 30px;
+	margin-bottom: 40px;
+
+	&.orders {
+		margin-bottom: 0;
+	}
+
+	&.favorites,
+	&.orders {
+		justify-content: center;
+		flex-direction: row;
+		gap: 20px;
+
+		img {
+			cursor: pointer;
+		}
+	}
+}
+
+//Products grid
+.products__grid {
+	display: grid;
+	grid-gap: 40px;
+	justify-content: center;
+	padding-bottom: 40px;
+
+	& > svg {
+		width: 100%;
+	}
+}
+
+@include sm {
+	.products__grid {
+		grid-template-columns: repeat(2, 1fr);
+		justify-content: flex-start;
+	}
+
+	.content__header {
+		flex-direction: row;
+		gap: 0;
+		text-align: left;
+
+		&.favorites,
+		&.orders {
+			justify-content: flex-start;
+		}
+	}
+}
+
+@include md {
+	.products__grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@include xl {
+	.products__grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}

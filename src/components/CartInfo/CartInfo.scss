@@ -1,0 +1,25 @@
+@use "../../scss/mixins" as *;
+
+//cart empty
+.cart__info {
+	@include flex(center, center);
+	flex-direction: column;
+	flex: 1;
+
+	//img
+	&-img {
+		max-width: 120px;
+		margin-bottom: 30px;
+	}
+
+	//title
+	&-title {
+		margin-bottom: 15px;
+	}
+
+	//text
+	&-text {
+		opacity: 0.5;
+		margin-bottom: 40px;
+	}
+}

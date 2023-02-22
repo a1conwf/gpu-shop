@@ -1,0 +1,158 @@
+@use "../../scss/mixins" as *;
+@use "../../scss/functions" as *;
+
+//overlay
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+	visibility: hidden;
+	opacity: 0;
+	overflow: hidden;
+	transition: opacity 0.1s ease-out, visibility 0.1s ease-out;
+
+	&__visible {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.overlay__visible .cart {
+	transform: translateX(0);
+}
+
+//cart sidebar
+.cart {
+	position: fixed;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	background-color: #fff;
+	box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+	overflow: auto;
+	transform: translateX(100%);
+	transition: transform 0.3s ease-out;
+
+	//cart header
+	&__header {
+		@include flex(space-between, center);
+		margin-bottom: 30px;
+
+		//title
+		&-title {
+			font-size: rem(24);
+			line-height: rem(29);
+		}
+
+		//plus btn
+		&-btn {
+			cursor: pointer;
+		}
+	}
+
+	//cart items
+	&__items {
+		margin-bottom: 40px;
+		flex: 1;
+	}
+
+	//each cart item
+	&__item {
+		@include flex(flex-start, center);
+		padding: 20px;
+		margin-bottom: 20px;
+		border: 1px solid #f3f3f3;
+		border-radius: 10px;
+		overflow: hidden;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		//item img
+		&-img {
+			width: 70px;
+			margin-right: 20px;
+		}
+
+		//item info
+		&-info {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			flex: 1;
+
+			//name
+			&-name {
+				font-size: rem(16);
+			}
+
+			//price
+			&-price {
+				font-weight: 700;
+			}
+		}
+
+		//remove btn
+		&-btn {
+			cursor: pointer;
+			opacity: 0.5;
+			transition: opacity 0.2s ease-in-out;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+
+	//cart total list
+	.total {
+		margin-bottom: 40px;
+
+		//list item
+		&__item {
+			display: flex;
+			align-items: flex-end;
+			margin-bottom: 20px;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+
+			//item name, item sum
+			&-name,
+			&-sum {
+				font-size: rem(16);
+			}
+
+			//item sum
+			&-sum {
+				font-weight: 700;
+			}
+
+			//item separator
+			&-separator {
+				position: relative;
+				top: -4px;
+				height: 1px;
+				border-bottom: 1px dashed #dfdfdf;
+				flex: 1;
+				margin: 0 8px;
+			}
+		}
+	}
+}
+
+@include sm {
+	.cart {
+		max-width: 420px;
+	}
+}

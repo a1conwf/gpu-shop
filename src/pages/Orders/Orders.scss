@@ -1,0 +1,42 @@
+@use "../../scss/mixins" as *;
+
+//order
+.order {
+	border-bottom: 2px solid #f4f4f4;
+
+	&:not(:first-child) .order__header {
+		padding-top: 40px;
+	}
+
+	//order header
+	&__header {
+		@include flex(center, center);
+		flex-direction: column;
+		gap: 20px;
+		margin-bottom: 40px;
+
+		//right
+		&-right {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			text-align: center;
+		}
+	}
+}
+
+@include sm {
+	//order
+	.order {
+		//order header
+		&__header {
+			@include flex(space-between, center);
+			flex-direction: row;
+
+			//right
+			&-right {
+				text-align: right;
+			}
+		}
+	}
+}

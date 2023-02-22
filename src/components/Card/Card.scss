@@ -1,0 +1,77 @@
+@use "../../scss/mixins" as *;
+
+//card
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 30px;
+	max-width: 220px;
+	border: 1px solid #f3f3f3;
+	border-radius: 10px;
+	transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+	&:hover {
+		box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+		transform: translateY(-5px);
+	}
+
+	//card top
+	&__top {
+		margin-bottom: 15px;
+	}
+
+	//card heart icon
+	&__heart {
+		display: block;
+		width: 32px;
+		height: 32px;
+		margin-bottom: 15px;
+		cursor: pointer;
+	}
+
+	//card img
+	&__img {
+		width: 100%;
+		margin-bottom: 15px;
+	}
+
+	//card product name
+	&__name {
+		font-weight: 700;
+	}
+
+	//card bottom
+	&__bottom {
+		margin-top: auto;
+	}
+
+	//card pricing
+	.pricing {
+		@include flex(space-between, center);
+
+		//pricing info
+		&__info {
+			display: flex;
+			flex-direction: column;
+
+			//title
+			&-title {
+				font-weight: 500;
+				font-size: rem(11);
+				line-height: rem(13);
+				color: #bdbdbd;
+			}
+
+			//amount
+			&-amount {
+				font-weight: 700;
+			}
+		}
+	}
+
+	//add btn
+	.add-btn {
+		cursor: pointer;
+	}
+}

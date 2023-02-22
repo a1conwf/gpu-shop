@@ -1,0 +1,37 @@
+@use "./mixins" as *;
+
+//Container
+.container {
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+@include x-sm {
+	.container {
+		max-width: 343px;
+	}
+}
+
+@include sm {
+	.container {
+		max-width: 540px;
+	}
+}
+
+@include md {
+	.container {
+		max-width: 708px;
+	}
+}
+
+@include lg {
+	.container {
+		max-width: 960px;
+	}
+}
+
+@include xl {
+	.container {
+		max-width: 1080px;
+	}
+}
